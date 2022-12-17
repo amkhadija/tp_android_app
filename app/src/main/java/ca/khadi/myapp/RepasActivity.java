@@ -7,18 +7,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class RepasActivity extends AppCompatActivity {
+    private TextView txtJour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repas);
         setTitle("Repas");
-
+        txtJour=findViewById(R.id.txtJour);
+        Bundle extras=getIntent().getExtras();
+        String jour=extras.getString("jour");
+        txtJour.setText(jour);
 
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -41,6 +52,7 @@ public class RepasActivity extends AppCompatActivity {
     }
 
     private void retour() {
+
         Intent i = new Intent(RepasActivity.this, HomeActivity.class);
         startActivity(i);
     }
