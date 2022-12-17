@@ -30,7 +30,6 @@ public class HomeActivity extends AppCompatActivity {
 
         setWidgets();
         setListeners();
-
     }
 
 

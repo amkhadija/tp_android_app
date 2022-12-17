@@ -4,32 +4,42 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class RepasActivity extends AppCompatActivity {
     private TextView txtJour;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repas);
         setTitle("Repas");
-        txtJour=findViewById(R.id.txtJour);
+        setWidgets();
         Bundle extras=getIntent().getExtras();
         String jour=extras.getString("jour");
-        txtJour.setText(jour);
 
+        txtJour.setText(jour);
+        txtJour.setGravity(Gravity.CENTER);
+        setBorderView(txtJour);
     }
 
-
-
+    private void setWidgets() {
+        txtJour=findViewById(R.id.txtJour);
+    }
+    private void setBorderView(TextView tv) {
+        GradientDrawable gd=new GradientDrawable();
+        gd.setColor(0xFF800080);
+        gd.setCornerRadius(15);
+        gd.setStroke(1, 0xFF000000);
+        tv.setBackground(gd);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -52,8 +62,12 @@ public class RepasActivity extends AppCompatActivity {
     }
 
     private void retour() {
-
         Intent i = new Intent(RepasActivity.this, HomeActivity.class);
+        startActivity(i);
+    }
+
+    public void onDejeuner(View view) {
+        Intent i = new Intent(RepasActivity.this, DejeunerActivity.class);
         startActivity(i);
     }
 }
