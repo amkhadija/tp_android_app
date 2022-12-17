@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 public class RepasActivity extends AppCompatActivity {
     private TextView txtJour;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +69,16 @@ public class RepasActivity extends AppCompatActivity {
 
     public void onDejeuner(View view) {
         Intent i = new Intent(RepasActivity.this, DejeunerActivity.class);
+        startActivity(i);
+    }
+
+    public void onSouper(View view) {
+        Intent i = new Intent(RepasActivity.this, SouperActivity.class);
+        startActivity(i);
+    }
+
+    public void onDiner(View view) {
+        Intent i = new Intent(RepasActivity.this, DinerActivity.class);
         startActivity(i);
     }
 }

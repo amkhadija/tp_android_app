@@ -10,7 +10,4 @@
         android:id="@+id/btnReturn"
         android:title="Return"
         app:showAsAction="ifRoom" />
-    <item
-        android:title="Submit"
-        app:showAsAction="never" />
 </menu>
