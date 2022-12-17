@@ -24,48 +24,48 @@ public class DejeunerActivity extends AppCompatActivity {
         setTitle("Déjeuner");
         listing = findViewById(R.id.listingDinner);
         map = new HashMap<String, String>();
-        map.put("nom", "Canada");
-        map.put("capital", "Ottawa");
+        map.put("nom", "Baguel au fromage");
+        map.put("brevage", "Jus orange et café");
         map.put("image", String.valueOf(R.drawable.dej1));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Tunisie");
-        map.put("capital", "Tunis");
+        map.put("nom", "Gruau au fruit");
+        map.put("brevage", "Jus d'orange");
         map.put("image", String.valueOf(R.drawable.dej2));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Pancake au miel, banane et pacane");
+        map.put("brevage", "jus d'orange");
         map.put("image", String.valueOf(R.drawable.dej3));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "3asida à l'huile d'olive et dattes");
+        map.put("brevage", "café");
         map.put("image", String.valueOf(R.drawable.dej4));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Melawi tartiné au confiture et fromage créme");
+        map.put("brevage", "Café");
         map.put("image", String.valueOf(R.drawable.dej5));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Oeuf dur, olive, fromage, tomate et concombre");
+        map.put("brevage", "Thé Turque");
         map.put("image", String.valueOf(R.drawable.dej6));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Omlette, olive, tomate, concombre, formage");
+        map.put("brevage", "Thé ou café");
         map.put("image", String.valueOf(R.drawable.dej7));
         values.add(map);
         SimpleAdapter adapter = new SimpleAdapter(DejeunerActivity.this, values, R.layout.element,
-                new String[] {"nom", "capital", "image"}, new int[]{R.id.txtNom, R.id.txtClasse, R.id.img});
+                new String[] {"nom", "brevage", "image"}, new int[]{R.id.txtNom, R.id.txtClasse, R.id.img});
 
         listing.setAdapter(adapter);
     }

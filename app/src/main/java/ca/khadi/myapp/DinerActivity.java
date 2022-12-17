@@ -24,48 +24,48 @@ public class DinerActivity extends AppCompatActivity {
         setTitle("Dîner");
         listingDinner = findViewById(R.id.listingDinner);
         map = new HashMap<String, String>();
-        map.put("nom", "Canada");
-        map.put("capital", "Ottawa");
+        map.put("nom", "Haricot blanc");
+        map.put("brevage", "au boulletes des viandes hachés");
         map.put("image", String.valueOf(R.drawable.diner1));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Tunisie");
-        map.put("capital", "Tunis");
+        map.put("nom", "Lazagne");
+        map.put("brevage", "à servir avec salade");
         map.put("image", String.valueOf(R.drawable.diner2));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "couscous");
+        map.put("brevage", "au légumes et viande");
         map.put("image", String.valueOf(R.drawable.diner3));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Curry au poulet");
+        map.put("brevage", "servi avec riz ou pain naan");
         map.put("image", String.valueOf(R.drawable.diner4));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Pâte avec sauce de tomate");
+        map.put("brevage", "au poulet");
         map.put("image", String.valueOf(R.drawable.diner5));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Tajine pois et poulet");
+        map.put("brevage", "aux légumes");
         map.put("image", String.valueOf(R.drawable.diner6));
         values.add(map);
 
         map = new HashMap<String, String>();
-        map.put("nom", "Palestine");
-        map.put("capital", "Qodes");
+        map.put("nom", "Saumon et pomme de terre");
+        map.put("brevage", "au four");
         map.put("image", String.valueOf(R.drawable.diner7));
         values.add(map);
         SimpleAdapter adapter = new SimpleAdapter(DinerActivity.this, values, R.layout.element,
-                new String[] {"nom", "capital", "image"}, new int[]{R.id.txtNom, R.id.txtClasse, R.id.img});
+                new String[] {"nom", "brevage", "image"}, new int[]{R.id.txtNom, R.id.txtClasse, R.id.img});
 
         listingDinner.setAdapter(adapter);
     }
