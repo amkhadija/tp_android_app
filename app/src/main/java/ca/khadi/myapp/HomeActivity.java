@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
-
+//test
     //declaration des composantes
     private ListView listing_jours;
     private String[] semaines = {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"};
