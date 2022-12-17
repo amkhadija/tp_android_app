@@ -3,6 +3,7 @@ package ca.khadi.myapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,13 +13,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
+    String ch;
 //test
     //declaration des composantes
     private ListView listing_jours;
-    private String[] semaines = {"Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
+    private String[] semaines = {"Dimanche"+ch,"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
     private ArrayAdapter<String> monAdapter;
 
     @Override
@@ -30,8 +33,8 @@ public class HomeActivity extends AppCompatActivity {
 
         setWidgets();
         setListeners();
-    }
 
+    }
 
     private void setWidgets() {
 
@@ -60,42 +63,18 @@ public class HomeActivity extends AppCompatActivity {
                 }else if(i==6){
                     jour="Samedi";
                 }
-                intent.putExtra("jour",jour);
+               intent.putExtra("jour",jour);
                 startActivity(intent);
+                Intent recuIntent=getIntent();
+                String dej=recuIntent.getStringExtra("nom");
+                TextView tv=new TextView(HomeActivity.this);
+                tv.setText(dej);
+                listing_jours.addView(tv);
+               // Toast.makeText(HomeActivity.this, dej, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 
-                startActivity(intent);
-                //Toast.makeText(MainActivity.this, semaines[i], Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-/*
-*  private void setListeners() {
-        listing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent= new Intent(ActivityListView.this, ActivityJour.class);
-                String jour="";
-                if(i==0){
-                    jour="Dimanche";
-                }else if(i==1){
-                    jour="Lundi";
-                }else if(i==2){
-                    jour="Mardi";
-                } else if(i==3){
-                    jour="Mercredi";
-                }else if(i==4){
-                    jour="Jeudi";
-                }else if(i==5){
-                    jour="Vendredi";
-                }else if(i==6){
-                    jour="Samedi";
-                }
-                intent.putExtra("jour",jour);
-                startActivity(intent);
-            }
-        });
-    }
-* */
 
 
 }
