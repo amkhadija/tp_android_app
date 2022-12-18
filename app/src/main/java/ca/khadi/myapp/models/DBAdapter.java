@@ -54,8 +54,8 @@ public class DBAdapter {
         ArrayList<Journee>registre=new ArrayList<>();
         while(!cursor.isAfterLast()){
 
-            String jour=cursor.getString(1);
-            String petitDej=cursor.getString(2);
+            String jour=cursor.getString(2);
+            String petitDej=cursor.getString(1);
            // String diner=cursor.getString(3);
             //String souper=cursor.getString(4);
             registre.add(new Journee(jour, petitDej));

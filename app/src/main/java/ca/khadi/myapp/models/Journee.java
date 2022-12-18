@@ -14,7 +14,7 @@ public class Journee {
         this.jour = jour;
     }
 
-    public Journee(String petitDej, String diner, String souper, String jour) {
+    public Journee( String jour, String petitDej, String diner, String souper) {
         this.petitDej = petitDej;
         this.diner = diner;
         this.souper = souper;

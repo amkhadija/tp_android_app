@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -219,10 +220,11 @@ private DBAdapter dbAdapter;
     }
 
     private void afficherData() {
-        ArrayList<Journee>registre=dbAdapter.listerDonner();
-
+      //ArrayList<Journee>registre = dbAdapter.listerDonner();
         Intent iAffiche=new Intent(CollectionActivity.this, PlanSemaineActivity.class);
-        iAffiche.putExtra("registre",registre);
+//        ArrayList<Journee> registre = dbAdapter.listerDonner();
+//        Toast.makeText(this, registre.toString(), Toast.LENGTH_LONG).show();
+//        iAffiche.putExtra("registre",registre.toString());
         startActivity(iAffiche);
     }
 

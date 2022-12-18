@@ -67,7 +67,7 @@ public class RepasActivity extends AppCompatActivity {
 
     public void onDejeuner(View view) {
         Intent i = new Intent(RepasActivity.this, CollectionActivity.class);
-        i.putExtra("jour", txtJour.getText().toString());
+        i.putExtra("jour", jour);
         startActivity(i);
     }
 

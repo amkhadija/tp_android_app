@@ -26,17 +26,16 @@ public class HomeActivity extends AppCompatActivity {
 
     //declaration des composantes
     private ListView listing_jours;
-    private String[] semaines = {"Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
+    private String[] semaines = {"Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
     private ArrayAdapter<String> monAdapter;
-private Button btnLister;
-DBAdapter dbAdapter;
+    private Button btnLister;
+    DBAdapter dbAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setTitle("Home");
-        // getSupportActionBar().hide();
-
         setWidgets();
         setListeners();
 
@@ -49,39 +48,39 @@ DBAdapter dbAdapter;
         listing_jours.setAdapter(monAdapter);
 
     }
+
     private void setListeners() {
         listing_jours.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent= new Intent(HomeActivity.this, RepasActivity.class);
-                String jour="";
-                if(i==0){
-                    jour="Dimanche";
-                }else if(i==1){
-                    jour="Lundi";
-                }else if(i==2){
-                    jour="Mardi";
-                } else if(i==3){
-                    jour="Mercredi";
-                }else if(i==4){
-                    jour="Jeudi";
-                }else if(i==5){
-                    jour="Vendredi";
-                }else if(i==6){
-                    jour="Samedi";
+                Intent intent = new Intent(HomeActivity.this, RepasActivity.class);
+                String jour = "";
+                if (i == 0) {
+                    jour = "Dimanche";
+                } else if (i == 1) {
+                    jour = "Lundi";
+                } else if (i == 2) {
+                    jour = "Mardi";
+                } else if (i == 3) {
+                    jour = "Mercredi";
+                } else if (i == 4) {
+                    jour = "Jeudi";
+                } else if (i == 5) {
+                    jour = "Vendredi";
+                } else if (i == 6) {
+                    jour = "Samedi";
                 }
-                 intent.putExtra("jour",jour);
+                intent.putExtra("jour", jour);
                 startActivity(intent);
-                Intent recuIntent=getIntent();
-                String dej=recuIntent.getStringExtra("nom");
-                TextView tv=new TextView(HomeActivity.this);
-                tv.setText(dej);
-                listing_jours.addView(tv);
-               // Toast.makeText(HomeActivity.this, dej, Toast.LENGTH_LONG).show();
+                Intent recuIntent = getIntent();
+//                String jourChoisi = recuIntent.getStringExtra("nomJour");
+//                TextView tv = new TextView(HomeActivity.this);
+//                tv.setText(jourChoisi);
+//                listing_jours.addView(tv);
+                // Toast.makeText(HomeActivity.this, dej, Toast.LENGTH_LONG).show();
             }
         });
     }
-
 
 
 }
