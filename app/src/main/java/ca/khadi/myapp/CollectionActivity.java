@@ -9,17 +9,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class CollectionActivity extends AppCompatActivity {
+import ca.khadi.myapp.models.DBAdapter;
+import ca.khadi.myapp.models.Journee;
 
+public class CollectionActivity extends AppCompatActivity {
+private DBAdapter dbAdapter;
     private ListView listing;
+    private ArrayAdapter<String> listAdapter;
     private ArrayList<HashMap<String, String>> values = new ArrayList<HashMap<String, String>>();
     HashMap<String, String> map;
     private TextView txtNom;
@@ -31,6 +35,7 @@ public class CollectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
         setTitle("Ma collection");
+        dbAdapter=new DBAdapter(CollectionActivity.this);
         setWidgets();
         setListeners();
 
@@ -179,12 +184,15 @@ public class CollectionActivity extends AppCompatActivity {
                Bundle extras = getIntent().getExtras();
                 String jour = extras.getString("jour");
 //                Toast.makeText(CollectionActivity.this, jour, Toast.LENGTH_SHORT).show();
-                StringBuilder sb = new StringBuilder();
-               sb = sb.append(jour+": ");
-                sb= sb.append(plats[i]);
-                Intent icol= new Intent(CollectionActivity.this,PlanSemaineActivity.class);
-                icol.putExtra("nom",sb.toString());
-                startActivity(icol);
+               // StringBuilder sb = new StringBuilder();
+                //sb = sb.append(jour+": ");
+                //sb= sb.append(plats[i]);
+               // Intent icol= new Intent(CollectionActivity.this,PlanSemaineActivity.class);
+                Journee j=new Journee(jour,plats[i]);
+               // icol.putExtra("nom",sb.toString());
+
+                dbAdapter.ajouterJournee(j);
+               // startActivity(icol);
             }
         });
     }
@@ -202,14 +210,23 @@ public class CollectionActivity extends AppCompatActivity {
             case R.id.btnReturn:
                 retour();
                 break;
-            case R.id.btnAdd:
-
+            case R.id.afficher:
+                afficherData();
                 break;
 
         }
         return super.onOptionsItemSelected(item);
     }
-//
+
+    private void afficherData() {
+        ArrayList<Journee>registre=dbAdapter.listerDonner();
+
+        Intent iAffiche=new Intent(CollectionActivity.this, PlanSemaineActivity.class);
+        iAffiche.putExtra("registre",registre);
+        startActivity(iAffiche);
+    }
+
+    //
     private void retour() {
          Intent i = new Intent(CollectionActivity.this, RepasActivity.class);
          startActivity(i);

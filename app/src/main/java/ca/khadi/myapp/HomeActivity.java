@@ -12,9 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import ca.khadi.myapp.models.DBAdapter;
+import ca.khadi.myapp.models.Journee;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -22,7 +28,8 @@ public class HomeActivity extends AppCompatActivity {
     private ListView listing_jours;
     private String[] semaines = {"Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
     private ArrayAdapter<String> monAdapter;
-
+private Button btnLister;
+DBAdapter dbAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
         listing_jours = findViewById(R.id.listing_jours);
         monAdapter = new ArrayAdapter<>(HomeActivity.this, android.R.layout.simple_list_item_1, semaines);
         listing_jours.setAdapter(monAdapter);
+
     }
     private void setListeners() {
         listing_jours.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
                 }else if(i==6){
                     jour="Samedi";
                 }
-               intent.putExtra("jour",jour);
+                 intent.putExtra("jour",jour);
                 startActivity(intent);
                 Intent recuIntent=getIntent();
                 String dej=recuIntent.getStringExtra("nom");
