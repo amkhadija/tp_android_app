@@ -17,11 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
-    String ch;
-//test
+
     //declaration des composantes
     private ListView listing_jours;
-    private String[] semaines = {"Dimanche"+ch,"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
+    private String[] semaines = {"Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
     private ArrayAdapter<String> monAdapter;
 
     @Override

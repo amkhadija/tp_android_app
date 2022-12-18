@@ -1,4 +1,4 @@
-package ca.khadi.myapp;
+package ca.khadi.myapp.models;
 
 public class journee {
     private String petitDej, diner, souper;
