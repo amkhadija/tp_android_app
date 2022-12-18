@@ -79,7 +79,7 @@ public class CollectionActivity extends AppCompatActivity {
         map.put("brevage", "Thé ou café");
         map.put("image", String.valueOf(R.drawable.dej7));
         values.add(map);
-
+//
         map = new HashMap<String, String>();
         map.put("nom", "Haricot blanc");
         map.put("brevage", "au boulletes des viandes hachés");
