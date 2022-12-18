@@ -184,7 +184,7 @@ private DBAdapter dbAdapter;
 //                Toast.makeText(CollectionActivity.this,dejeuner[i], Toast.LENGTH_LONG).show();
                Bundle extras = getIntent().getExtras();
                 String jour = extras.getString("jour");
-//                Toast.makeText(CollectionActivity.this, jour, Toast.LENGTH_SHORT).show();
+              Toast.makeText(CollectionActivity.this, jour, Toast.LENGTH_SHORT).show();
                // StringBuilder sb = new StringBuilder();
                 //sb = sb.append(jour+": ");
                 //sb= sb.append(plats[i]);

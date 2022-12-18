@@ -36,7 +36,6 @@
             android:layout_width="240dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:onClick="onDejeuner"
             android:textAlignment="center"
             app:srcCompat="@drawable/dej" />
 
