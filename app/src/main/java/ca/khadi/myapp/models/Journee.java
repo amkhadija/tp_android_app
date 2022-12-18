@@ -8,6 +8,7 @@ public class Journee {
         this.diner = diner;
         this.souper = souper;
     }
+    //
 
     public Journee(String jour, String petitDej) {
         this.petitDej = petitDej;
