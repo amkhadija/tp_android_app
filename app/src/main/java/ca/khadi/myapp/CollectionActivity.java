@@ -176,11 +176,11 @@ public class CollectionActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                Toast.makeText(CollectionActivity.this,dejeuner[i], Toast.LENGTH_LONG).show();
-//                Bundle extras = getIntent().getExtras();
-//                String jour = extras.getString("jour");
+               Bundle extras = getIntent().getExtras();
+                String jour = extras.getString("jour");
 //                Toast.makeText(CollectionActivity.this, jour, Toast.LENGTH_SHORT).show();
                 StringBuilder sb = new StringBuilder();
-               // sb = sb.append(jour);
+               sb = sb.append(jour+": ");
                 sb= sb.append(plats[i]);
                 Intent icol= new Intent(CollectionActivity.this,PlanSemaineActivity.class);
                 icol.putExtra("nom",sb.toString());
