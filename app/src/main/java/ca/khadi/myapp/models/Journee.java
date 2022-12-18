@@ -1,15 +1,35 @@
 package ca.khadi.myapp.models;
 
-public class journee {
-    private String petitDej, diner, souper;
+public class Journee {
+    private String petitDej, diner, souper, jour;
 
-    public journee(String petitDej, String diner, String souper) {
+    public Journee(String petitDej, String diner, String souper) {
         this.petitDej = petitDej;
         this.diner = diner;
         this.souper = souper;
     }
 
-    public journee() {
+    public Journee(String jour, String petitDej) {
+        this.petitDej = petitDej;
+        this.jour = jour;
+    }
+
+    public Journee(String petitDej, String diner, String souper, String jour) {
+        this.petitDej = petitDej;
+        this.diner = diner;
+        this.souper = souper;
+        this.jour = jour;
+    }
+
+    public String getJour() {
+        return jour;
+    }
+
+    public void setJour(String jour) {
+        this.jour = jour;
+    }
+
+    public Journee() {
     }
 
     public String getPetitDej() {
@@ -38,10 +58,11 @@ public class journee {
 
     @Override
     public String toString() {
-        return "journee{" +
+        return "Journee{" +
                 "petitDej='" + petitDej + '\'' +
                 ", diner='" + diner + '\'' +
                 ", souper='" + souper + '\'' +
+                ", jour='" + jour + '\'' +
                 '}';
     }
 }

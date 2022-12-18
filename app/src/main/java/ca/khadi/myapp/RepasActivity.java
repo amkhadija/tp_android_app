@@ -10,9 +10,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class RepasActivity extends AppCompatActivity {
     private TextView txtJour;
@@ -54,7 +52,7 @@ public class RepasActivity extends AppCompatActivity {
             case R.id.btnReturn:
                 retour();
                 break;
-            case R.id.btnAdd:
+            case R.id.afficher:
                 Intent iCollection = new Intent(RepasActivity.this, CollectionActivity.class);
                 startActivity(iCollection);
 
