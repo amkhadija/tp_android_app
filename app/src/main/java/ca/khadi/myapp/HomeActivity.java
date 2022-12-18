@@ -3,6 +3,7 @@ package ca.khadi.myapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,22 +13,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class HomeActivity extends AppCompatActivity {
+    String ch;
 //test
     //declaration des composantes
     private ListView listing_jours;
-    private String[] semaines = {"Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
+    private String[] semaines = {"Dimanche"+ch,"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
     private ArrayAdapter<String> monAdapter;
-    TextView jour, dejeuner, dinner, souper;
-    ArrayList<HashMap<String, String>> values = new ArrayList<HashMap<String, String>>();
-    HashMap<String, String> map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,26 +33,14 @@ public class HomeActivity extends AppCompatActivity {
 
         setWidgets();
         setListeners();
-    }
 
+    }
 
     private void setWidgets() {
 
         listing_jours = findViewById(R.id.listing_jours);
-        map = new HashMap<String, String>();
+        monAdapter = new ArrayAdapter<>(HomeActivity.this, android.R.layout.simple_list_item_1, semaines);
         listing_jours.setAdapter(monAdapter);
-        jour = findViewById(R.id.jour);
-        dejeuner = findViewById(R.id.dejeuner);
-        dinner = findViewById(R.id.dinner);
-        souper= findViewById(R.id.souper);
-        map.put("jour", "");
-        map.put("dejeuner", "");
-        map.put("dinner", "");
-        map.put("souper", "");
-        values.add(map);
-       // monAdapter = new ArrayAdapter<>(HomeActivity.this, R.layout.plan_jour, R.id.jour, semaines);
-        SimpleAdapter adapter = new SimpleAdapter(HomeActivity.this, values, R.layout.plan_jour,
-                new String[] {"jour", "dejeuner", "dinner", "souper"}, new int[]{R.id.jour, R.id.dejeuner, R.id.dinner, R.id.souper});
     }
     private void setListeners() {
         listing_jours.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,16 +63,17 @@ public class HomeActivity extends AppCompatActivity {
                 }else if(i==6){
                     jour="Samedi";
                 }
-                intent.putExtra("jour",jour);
+               intent.putExtra("jour",jour);
                 startActivity(intent);
-
-                startActivity(intent);
-                Toast.makeText(HomeActivity.this, semaines[i], Toast.LENGTH_LONG).show();
+                Intent recuIntent=getIntent();
+                String dej=recuIntent.getStringExtra("nom");
+                TextView tv=new TextView(HomeActivity.this);
+                tv.setText(dej);
+                listing_jours.addView(tv);
+               // Toast.makeText(HomeActivity.this, dej, Toast.LENGTH_LONG).show();
             }
         });
     }
-
-
 
 
 

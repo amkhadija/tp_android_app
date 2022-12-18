@@ -1,8 +1,8 @@
 package ca.khadi.myapp;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,22 +11,25 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 public class DejeunerActivity extends AppCompatActivity {
     private ListView listing;
     private ArrayList<HashMap<String, String>> values = new ArrayList<HashMap<String, String>>();
     HashMap<String, String> map;
+    private TextView txtNom;
+String[]dejeuner={"Baguel au fromage","Gruau au fruit","Pancake au miel, banane et pacane","3asida à l'huile d'olive et dattes",
+        "Melawi tartiné au confiture et fromage créme","Oeuf dur, olive, fromage, tomate et concombre",
+        "Omlette, olive, tomate, concombre, formage"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dejeuner);
+
         setTitle("Déjeuner");
-        setListeners();
-        
         listing = findViewById(R.id.listingDinner);
         map = new HashMap<String, String>();
         map.put("nom", "Baguel au fromage");
@@ -73,13 +76,17 @@ public class DejeunerActivity extends AppCompatActivity {
                 new String[] {"nom", "brevage", "image"}, new int[]{R.id.txtNom, R.id.txtClasse, R.id.img});
 
         listing.setAdapter(adapter);
+        setListeners();
     }
 
     private void setListeners() {
         listing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(DejeunerActivity.this,listing.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DejeunerActivity.this,dejeuner[i], Toast.LENGTH_LONG).show();
+                Intent iDejeuner = new Intent(DejeunerActivity.this, HomeActivity.class);
+                iDejeuner.putExtra("nom",dejeuner[i]);
+                startActivity(iDejeuner);
             }
         });
     }
@@ -98,6 +105,7 @@ public class DejeunerActivity extends AppCompatActivity {
                 retour();
                 break;
             case R.id.btnAdd:
+
               break;
 
         }
@@ -105,8 +113,8 @@ public class DejeunerActivity extends AppCompatActivity {
     }
 
     private void retour() {
-        Intent i = new Intent(DejeunerActivity.this, RepasActivity.class);
-        startActivity(i);
+       // Intent i = new Intent(DejeunerActivity.this, RepasActivity.class);
+       // startActivity(i);
     }
 
 }
