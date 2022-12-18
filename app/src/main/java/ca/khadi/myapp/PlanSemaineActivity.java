@@ -31,7 +31,7 @@ public class PlanSemaineActivity extends AppCompatActivity {
 
         TextView tv1 = new TextView(this);
         tv1.setTextSize(20);
-        tv1.setText("jour 1 "+ choix );
+        tv1.setText( choix);
         plan.addView(tv1);
     }
 
