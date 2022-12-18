@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +25,8 @@ public class DejeunerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dejeuner);
         setTitle("Déjeuner");
+        setListeners();
+        
         listing = findViewById(R.id.listingDinner);
         map = new HashMap<String, String>();
         map.put("nom", "Baguel au fromage");
@@ -68,6 +73,15 @@ public class DejeunerActivity extends AppCompatActivity {
                 new String[] {"nom", "brevage", "image"}, new int[]{R.id.txtNom, R.id.txtClasse, R.id.img});
 
         listing.setAdapter(adapter);
+    }
+
+    private void setListeners() {
+        listing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(DejeunerActivity.this,listing.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
